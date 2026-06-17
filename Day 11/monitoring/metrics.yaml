@@ -1,0 +1,42 @@
+# Метрики для Prometheus — IoT-платформа
+
+metrics:
+  - name: iot_backup_last_success_timestamp_seconds
+    help: "Время последнего успешного бэкапа"
+    type: gauge
+
+  - name: iot_backup_status
+    help: "Статус бэкапа (1 - success, 0 - fail)"
+    type: gauge
+
+  - name: iot_backup_duration_seconds
+    help: "Длительность выполнения бэкапа"
+    type: histogram
+
+  - name: iot_backup_size_bytes
+    help: "Размер бэкапа в байтах"
+    type: gauge
+
+  - name: iot_kafka_lag
+    help: "Отставание потребителей Kafka"
+    type: gauge
+
+  - name: iot_influxdb_points_written_total
+    help: "Общее количество записанных точек в InfluxDB"
+    type: counter
+
+  - name: iot_influxdb_query_duration_seconds
+    help: "Длительность выполнения запросов к InfluxDB"
+    type: histogram
+
+  - name: iot_minio_objects_total
+    help: "Общее количество объектов в MinIO"
+    type: gauge
+
+  - name: iot_minio_bucket_size_bytes
+    help: "Размер бакета MinIO в байтах"
+    type: gauge
+
+  - name: iot_redis_memory_usage_bytes
+    help: "Использование памяти Redis"
+    type: gauge

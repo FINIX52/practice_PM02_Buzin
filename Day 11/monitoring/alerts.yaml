@@ -1,0 +1,18 @@
+groups:
+  - name: iot_backup_alerts
+    rules:
+      - alert: IoTBackupFailed
+        expr: iot_backup_status == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "IoT бэкап {{ $labels.job_name }} провалился"
+
+      - alert: IoTKafkaLagHigh
+        expr: iot_kafka_lag > 100000
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Отставание Kafka: {{ $value }} сообщений"
